@@ -4,7 +4,7 @@ select
     paymentmethod as payment_method,
     status as payment_status,
 
-    amount/100 as amount,
+    {{ cents_to_dollars('amount', 4) }} as amount,
     created as created_date
 
 from dbt_carolinemiller98.stripe_payments 
